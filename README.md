@@ -15,7 +15,7 @@ This website offers:
 
 - HTML, CSS, JavaScript for frontend development  
 - Railway for cloud integration of form submissions  
-- Git & GitHub for version control  
+- GitHub for version control  
 
 ## Folder Structure
 Sallyscaterings/
