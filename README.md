@@ -15,7 +15,7 @@ This website includes:
 
 - HTML, CSS, JavaScript
 - PHP (via XAMPP server)
-- Railway (cloud backend integration)
+- Railway (cloud integration)
 - Git & GitHub (version control)
 
 ## Folder Structure
