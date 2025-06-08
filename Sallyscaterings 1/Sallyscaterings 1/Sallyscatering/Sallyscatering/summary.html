@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Summary - Sally's Catering</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <h1>Sally's Catering</h1>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="budget.html">Get Started</a>
+            <a href="contact.html">Contact</a>
+            <a href="login.html" class="btn-login">Login</a>
+        </div>
+        <button class="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <main class="container" style="margin-top: 120px;">
+        <div class="summary-container">
+            <h2>Order Summary</h2>
+            <div class="event-details">
+                <h3>Event Details</h3>
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <i class="fas fa-calendar"></i>
+                        <div>
+                            <span class="label">Event Date</span>
+                            <span id="event-date" class="value">Loading...</span>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-users"></i>
+                        <div>
+                            <span class="label">Number of Guests</span>
+                            <span id="guest-count" class="value">Loading...</span>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-utensils"></i>
+                        <div>
+                            <span class="label">Event Type</span>
+                            <span id="event-type" class="value">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="order-details">
+                <h3>Selected Items</h3>
+                <div class="food-items">
+                    <h4>Food Package</h4>
+                    <div id="selected-dishes">
+                        <!-- Selected dishes will be displayed here -->
+                    </div>
+                </div>
+
+                <div class="addon-items">
+                    <h4>Add-ons</h4>
+                    <div id="selected-addons">
+                        <!-- Selected add-ons will be displayed here -->
+                    </div>
+                </div>
+
+                <div class="total-section">
+                    <div class="subtotal">
+                        <span>Food Package Subtotal:</span>
+                        <span id="food-subtotal">₱0.00</span>
+                    </div>
+                    <div class="subtotal">
+                        <span>Add-ons Subtotal:</span>
+                        <span id="addons-subtotal">₱0.00</span>
+                    </div>
+                    <div class="total">
+                        <span>Total Amount:</span>
+                        <span id="total-amount">₱0.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="confirmation-section">
+                <div class="terms-checkbox">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="terms-checkbox" required>
+                        I confirm that all the details above are correct and agree to the terms and conditions
+                    </label>
+                </div>
+                <button class="btn btn-primary" id="confirm-order" disabled>Confirm Order</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: info@sallyscatering.com</p>
+                <p>Phone: (123) 456-7890</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Sally's Catering. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load event details
+            const eventDetails = JSON.parse(sessionStorage.getItem('eventDetails') || '{}');
+            
+            // Format the date
+            const eventDate = new Date(eventDetails.date);
+            const formattedDate = eventDate.toLocaleDateString('en-PH', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+            
+            // Get dietary requirements
+            const dietaryRequirements = eventDetails.dietary ? eventDetails.dietary.join(', ') : 'None';
+            
+            // Update event details
+            document.getElementById('event-date').textContent = formattedDate || 'Not set';
+            document.getElementById('guest-count').textContent = eventDetails.guests || '0';
+            document.getElementById('event-type').textContent = eventDetails.type || 'Not set';
+
+            // Add dietary requirements to event details
+            const dietaryElement = document.createElement('div');
+            dietaryElement.className = 'detail-item';
+            dietaryElement.innerHTML = `
+                <i class="fas fa-utensils"></i>
+                <div>
+                    <span class="label">Dietary Requirements</span>
+                    <span class="value">${dietaryRequirements}</span>
+                </div>
+            `;
+            document.querySelector('.details-grid').appendChild(dietaryElement);
+
+            // Load food items from sessionStorage
+            const selectedItems = JSON.parse(sessionStorage.getItem('selectedItems') || '[]');
+            const dishesContainer = document.getElementById('selected-dishes');
+            let foodSubtotal = 0;
+
+            // Calculate food package total
+            selectedItems.forEach(item => {
+                foodSubtotal += item.price;
+                
+                dishesContainer.innerHTML += `
+                    <div class="selected-item">
+                        <div class="item-details">
+                            <img src="${item.image}" alt="${item.name}" style="width: 50px; height: 50px; object-fit: cover;">
+                            <div>
+                                <h4>${item.name}</h4>
+                                <p>${item.description}</p>
+                            </div>
+                        </div>
+                        <div class="item-price">
+                            ₱${item.price.toLocaleString()}
+                        </div>
+                    </div>
+                `;
+            });
+
+            // Update food subtotal
+            document.getElementById('food-subtotal').textContent = `₱${foodSubtotal.toLocaleString()}`;
+
+            // Load and calculate add-ons total
+            const addonsData = JSON.parse(sessionStorage.getItem('addonsData') || '{}');
+            const addonsContainer = document.getElementById('selected-addons');
+            let addonsSubtotal = 0;
+            let totalAmount = 0;
+
+            if (addonsData.selectedAddons) {
+                addonsData.selectedAddons.forEach(addon => {
+                    const addonTotal = addon.price * addon.quantity;
+                    addonsSubtotal += addonTotal;
+                    
+                    addonsContainer.innerHTML += `
+                        <div class="selected-item">
+                            <span>${addon.name} x ${addon.quantity}</span>
+                            <span>₱${addonTotal.toLocaleString()}</span>
+                        </div>
+                    `;
+                });
+            }
+
+            // Calculate total amount
+            totalAmount = foodSubtotal + addonsSubtotal;
+
+            // Update all totals
+            document.getElementById('addons-subtotal').textContent = `₱${addonsSubtotal.toLocaleString()}`;
+            document.getElementById('total-amount').textContent = `₱${totalAmount.toLocaleString()}`;
+
+            // Terms checkbox handling
+            const termsCheckbox = document.getElementById('terms-checkbox');
+            const confirmButton = document.getElementById('confirm-order');
+
+            termsCheckbox.addEventListener('change', function() {
+                confirmButton.disabled = !this.checked;
+            });
+
+            // Order confirmation
+            confirmButton.addEventListener('click', function() {
+                if (confirm('Are you sure you want to confirm this order?')) {
+                    alert('Order confirmed! Thank you for choosing Sally\'s Catering.');
+                    // Here you would typically send the order to your backend
+                    window.location.href = 'index.html';
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

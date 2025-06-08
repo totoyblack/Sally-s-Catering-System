@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customized Package - Sally's Catering</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <a href="index.html">Sally's Catering</a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="btn-login">Home</a></li>
+            <li><a href="budget.html" class="btn-login">Budget</a></li>
+            <li><a href="login.html" class="btn-login">Login</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="recommendations-container">
+            <h2>Your Customized Package</h2>
+            
+            <div class="package-summary">
+                <div class="summary-item">
+                    <i class="fas fa-users"></i>
+                    <span id="guest-count">0</span> Guests
+                </div>
+                <div class="summary-item">
+                    <i class="fas fa-calendar"></i>
+                    <span id="event-date">Date</span>
+                </div>
+                <div class="summary-item">
+                    <i class="fas fa-peso-sign"></i>
+                    <span id="budget-range">Budget</span>
+                </div>
+            </div>
+
+            <div class="dish-section">
+                <h3>Pulutan & Appetizers</h3>
+                <div class="dish-scroll">
+                    <div class="dish-card" data-price="150">
+                        <img src="images/dishes/lumpia.jpg" alt="Lumpia">
+                        <h4>Lumpia</h4>
+                        <p>Crispy spring rolls filled with vegetables and meat</p>
+                        <div class="dish-price">₱150</div>
+                        <button class="btn-select" data-dish="lumpia">Select</button>
+                    </div>
+                    <div class="dish-card" data-price="200">
+                        <img src="images/dishes/tokwa-baboy.jpg" alt="Tokwa't Baboy">
+                        <h4>Tokwa't Baboy</h4>
+                        <p>Fried tofu and pork with soy-vinegar dip</p>
+                        <div class="dish-price">₱200</div>
+                        <button class="btn-select" data-dish="tokwa-baboy">Select</button>
+                    </div>
+                    <div class="dish-card" data-price="100">
+                        <img src="images/dishes/ensalada.jpg" alt="Ensalada">
+                        <h4>Ensalada</h4>
+                        <p>Fresh garden salad with Filipino dressing</p>
+                        <div class="dish-price">₱100</div>
+                        <button class="btn-select" data-dish="ensalada">Select</button>
+                    </div>
+                    <div class="dish-card" data-price="180">
+                        <img src="images/dishes/kinilaw.jpg" alt="Kinilaw">
+                        <h4>Kinilaw</h4>
+                        <p>Fresh fish ceviche with coconut milk and vinegar</p>
+                        <div class="dish-price">₱180</div>
+                        <button class="btn-select" data-dish="kinilaw">Select</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dish-section">
+                <h3>Main Dishes</h3>
+                <div class="dish-scroll">
+                    <div class="dish-card" data-price="1000">
+                        <img src="images/dishes/lechon.jpg" alt="Lechon">
+                        <h4>Lechon</h4>
+                        <p>Whole roasted pig with crispy skin and tender meat</p>
+                        <div class="dish-price">₱1,000</div>
+                        <button class="btn-select" data-dish="lechon">Select</button>
+                    </div>
+                    <div class="dish-card" data-price="450">
+                        <img src="images/dishes/kare-kare.jpg" alt="Kare-Kare">
+                        <h4>Kare-Kare</h4>
+                        <p>Oxtail and vegetables in peanut sauce</p>
+                        <div class="dish-price">₱450</div>
+                        <button class="btn-select" data-dish="kare-kare">Select</button>
+                    </div>
+                    <div class="dish-card" data-price="300">
+                        <img src="images/dishes/adobo.jpg" alt="Adobo">
+                        <h4>Adobo</h4>
+                        <p>Classic Filipino dish of meat in soy-vinegar sauce</p>
+                        <div class="dish-price">₱300</div>
+                        <button class="btn-select" data-dish="adobo">Select</button>
+                    </div>
+                    <div class="dish-card" data-price="350">
+                        <img src="images/dishes/sinigang.jpg" alt="Sinigang">
+                        <h4>Sinigang</h4>
+                        <p>Sour soup with meat and vegetables</p>
+                        <div class="dish-price">₱350</div>
+                        <button class="btn-select" data-dish="sinigang">Select</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dish-section">
+                <h3>Desserts</h3>
+                <div class="dish-scroll">
+                    <div class="dish-card" data-price="250">
+                        <img src="images/dishes/leche-flan.jpg" alt="Leche Flan">
+                        <h4>Leche Flan</h4>
+                        <p>Creamy caramel custard dessert</p>
+                        <div class="dish-price">₱250</div>
+                        <button class="btn-select" data-dish="leche-flan">Select</button>
+                    </div>
+                    <div class="dish-card" data-price="300">
+                        <img src="images/dishes/halo-halo.jpg" alt="Halo-Halo">
+                        <h4>Halo-Halo</h4>
+                        <p>Mixed fruits and beans with shaved ice and milk</p>
+                        <div class="dish-price">₱300</div>
+                        <button class="btn-select" data-dish="halo-halo">Select</button>
+                    </div>
+                    <div class="dish-card" data-price="200">
+                        <img src="images/dishes/buko-pandan.jpg" alt="Buko Pandan">
+                        <h4>Buko Pandan</h4>
+                        <p>Young coconut and pandan-flavored gelatin dessert</p>
+                        <div class="dish-price">₱200</div>
+                        <button class="btn-select" data-dish="buko-pandan">Select</button>
+                    </div>
+                    <div class="dish-card" data-price="150">
+                        <img src="images/dishes/turon.jpg" alt="Turon">
+                        <h4>Turon</h4>
+                        <p>Banana and jackfruit wrapped in spring roll wrapper</p>
+                        <div class="dish-price">₱150</div>
+                        <button class="btn-select" data-dish="turon">Select</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="package-summary-bottom">
+                <div class="selected-items">
+                    <h3>Selected Items</h3>
+                    <div class="selected-category">
+                        <div id="selected-items-list"></div>
+                    </div>
+                </div>
+                <a href="addons.html" class="btn-primary">Continue to Add-ons</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-phone"></i> (02) 8123-4567</p>
+                <p><i class="fas fa-envelope"></i> info@sallyscatering.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize variables
+            const selectedDishes = new Set();
+            const selectedItemsList = document.getElementById('selected-items-list');
+            const budgetInput = document.getElementById('budget');
+            let initialBudget = 0;
+            let currentBudget = 0;
+
+            // Load event details
+            const eventDetails = JSON.parse(sessionStorage.getItem('eventDetails') || '{}');
+            
+            // Update package summary
+            document.getElementById('guest-count').textContent = eventDetails.guests || 0;
+            document.getElementById('event-date').textContent = eventDetails.date || 'Date';
+            document.getElementById('budget-range').textContent = eventDetails.budget || 'Not set';
+            initialBudget = parseFloat(eventDetails.budget) || 0;
+            currentBudget = initialBudget;
+
+            // Function to update budget display
+            function updateBudgetDisplay(newBudget) {
+                currentBudget = newBudget;
+                document.getElementById('budget-range').textContent = `₱${currentBudget.toFixed(2)}`;
+            }
+
+            // Add budget validation function
+            function validateDishSelection(dishPrice) {
+                if (currentBudget - dishPrice < 0) {
+                    showToast('Not Enough Budget');
+                    return false;
+                }
+                return true;
+            }
+
+            // Handle dish selection
+            document.querySelectorAll('.btn-select').forEach(button => {
+                button.addEventListener('click', function() {
+                    const dish = this.dataset.dish;
+                    const dishCard = this.closest('.dish-card');
+                    const priceElement = dishCard.querySelector('.dish-price');
+                    const dishPrice = parseFloat(priceElement.textContent.replace('₱', '').replace(',', ''));
+
+                    if (button.textContent === 'Select') {
+                        // Check if we have enough budget before adding
+                        if (!validateDishSelection(dishPrice)) {
+                            return; // Don't add the dish if budget is insufficient
+                        }
+                        
+                        // Add dish to selection
+                        selectedDishes.add(dish);
+                        // Deduct price from budget
+                        updateBudgetDisplay(currentBudget - dishPrice);
+                        this.textContent = 'Remove';
+                    } else {
+                        // Remove dish from selection
+                        selectedDishes.delete(dish);
+                        // Return price to budget
+                        updateBudgetDisplay(currentBudget + dishPrice);
+                        this.textContent = 'Select';
+                    }
+                    updateSelectedItems();
+                });
+            }); 
+
+            // Handle remove buttons
+            selectedItemsList.addEventListener('click', function(e) {
+                if (e.target.classList.contains('btn-remove')) {
+                    const dishName = e.target.getAttribute('data-dish');
+                    selectedDishes.delete(dishName);
+                    
+                    // Find the dish card to get its price
+                    const dishCard = document.querySelector(`[data-dish="${dishName}"]`).closest('.dish-card');
+                    const dishPrice = parseFloat(dishCard.getAttribute('data-price')) || 0;
+                    
+                    // Return price to budget
+                    updateBudgetDisplay(currentBudget + dishPrice);
+                    
+                    // Find and reset the corresponding select button
+                    const selectButton = document.querySelector(`[data-dish="${dishName}"]`);
+                    if (selectButton) {
+                        selectButton.textContent = 'Select';
+                    }
+                    
+                    // Update selected items list
+                    updateSelectedItems();
+                }
+            });
+
+            function updateSelectedItems() {
+                // Clear existing items
+                selectedItemsList.innerHTML = '';
+                
+                // Add selected items
+                selectedDishes.forEach(dishName => {
+                    const dishCard = document.querySelector(`[data-dish="${dishName}"]`).closest('.dish-card');
+                    const dishTitle = dishCard.querySelector('h4').textContent;
+                    const dishPrice = dishCard.getAttribute('data-price');
+                    const dishImage = dishCard.querySelector('img').src;
+                    const dishDescription = dishCard.querySelector('p').textContent;
+
+                    // Create item HTML
+                    const itemHtml = `
+                        <div class="selected-item">
+                            <div class="item-details">
+                                <h4>${dishTitle}</h4>
+                                <p>${dishDescription}</p>
+                                <div class="item-price">₱${dishPrice}</div>
+                            </div>
+                            <button class="btn-remove" data-dish="${dishName}">Remove</button>
+                        </div>
+                    `;
+                    
+                    // Add to list
+                    selectedItemsList.innerHTML += itemHtml;
+                });
+
+                // Store selected items in sessionStorage
+                const selectedItems = Array.from(selectedDishes).map(dishName => {
+                    const dishCard = document.querySelector(`[data-dish="${dishName}"]`).closest('.dish-card');
+                    return {
+                        name: dishCard.querySelector('h4').textContent,
+                        price: parseFloat(dishCard.getAttribute('data-price')) || 0,
+                        image: dishCard.querySelector('img').src,
+                        description: dishCard.querySelector('p').textContent
+                    };
+                });
+
+                sessionStorage.setItem('selectedItems', JSON.stringify(selectedItems));
+            }
+
+            // Initial update
+            updateSelectedItems();
+
+            // Load any previously selected dishes from sessionStorage
+            const savedSelected = sessionStorage.getItem('selectedDishes');
+            if (savedSelected) {
+                savedSelected.split(',').forEach(dish => {
+                    if (dish) {
+                        const button = document.querySelector(`[data-dish="${dish}"]`);
+                        if (button) {
+                            button.click();
+                        }
+                    }
+                });
+            }
+
+            // Update the summary page when items change
+            function updateSummaryPage() {
+                const selectedItems = Array.from(selectedDishes).map(dishName => {
+                    const dishCard = document.querySelector(`[data-dish="${dishName}"]`).closest('.dish-card');
+                    return {
+                        name: dishCard.querySelector('h4').textContent,
+                        price: parseFloat(dishCard.getAttribute('data-price')) || 0,
+                        image: dishCard.querySelector('img').src,
+                        description: dishCard.querySelector('p').textContent
+                    };
+                });
+
+                sessionStorage.setItem('selectedItems', JSON.stringify(selectedItems));
+            }
+
+            // Update summary page when items are added or removed
+            document.querySelectorAll('.btn-select').forEach(button => {
+                button.addEventListener('click', function() {
+                    updateSummaryPage();
+                });
+            });
+
+            document.querySelectorAll('.btn-remove').forEach(button => {
+                button.addEventListener('click', function() {
+                    updateSummaryPage();
+                });
+            });
+
+            // Add budget validation
+            function validateBudget() {
+                if (currentBudget < 0) {
+                    alert('Budget cannot be negative! Please adjust your selections.');
+                    return false;
+                }
+                return true;
+            }
+
+            // Add validation to form submission
+            const form = document.getElementById('budget-form');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    if (!validateBudget()) {
+                        e.preventDefault();
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

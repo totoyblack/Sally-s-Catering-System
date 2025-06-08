@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sally's Catering - Filipino Catering Services</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <h1><a href="index.html">Sally's Catering</a></h1>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="btn-login">Home</a>
+            <a href="budget.html" class="btn-login">Budget</a>
+            <a href="login.html" class="btn-login">Login</a>
+            <a href="#" class="btn-login" style="display: none;">Logout</a>
+        </div>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Authentic Filipino Catering</h1>
+                <p>Experience the rich flavors of Filipino cuisine at your special events</p>
+                <a href="budget.html" class="btn-primary">Get Started</a>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="feature-card">
+                <i class="fas fa-utensils"></i>
+                <h3>Authentic Filipino Cuisine</h3>
+                <p>Traditional and modern Filipino dishes prepared with love</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-calendar-check"></i>
+                <h3>Customized Packages</h3>
+                <p>Tailored menus to fit your budget and preferences</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-star"></i>
+                <h3>Quality Service</h3>
+                <p>Professional staff and excellent customer service</p>
+            </div>
+        </section>
+
+        <section class="popular-dishes">
+            <h2>Popular Dishes</h2>
+            <div class="dishes-grid">
+                <div class="dish-card">
+                    <img src="images/dishes/lechon.jpg" alt="Lechon">
+                    <h4>Lechon</h4>
+                    <p>Whole roasted pig with crispy skin</p>
+                </div>
+                <div class="dish-card">
+                    <img src="images/dishes/kare-kare.jpg" alt="Kare-Kare">
+                    <h4>Kare-Kare</h4>
+                    <p>Oxtail and vegetables in peanut sauce</p>
+                </div>
+                <div class="dish-card">
+                    <img src="images/dishes/adobo.jpg" alt="Adobo">
+                    <h4>Adobo</h4>
+                    <p>Classic Filipino meat dish</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-phone"></i> (02) 8123-4567</p>
+                <p><i class="fas fa-envelope"></i> info@sallyscatering.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Check login status
+        function checkLoginStatus() {
+            const isLoggedIn = sessionStorage.getItem('isLoggedIn') === 'true';
+            document.getElementById('loginBtn').style.display = isLoggedIn ? 'none' : 'block';
+            document.getElementById('logoutBtn').style.display = isLoggedIn ? 'block' : 'none';
+        }
+
+        // Handle logout
+        document.getElementById('logoutBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            sessionStorage.removeItem('isLoggedIn');
+            sessionStorage.removeItem('user');
+            window.location.href = 'index.html';
+        });
+
+        // Check login status on page load
+        document.addEventListener('DOMContentLoaded', checkLoginStatus);
+    </script>
+</body>
+</html> 
