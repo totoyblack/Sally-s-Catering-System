@@ -1,34 +1,26 @@
 # Sally's Catering Website
 
-A simple PHP-based website for Sally's Catering, developed with HTML, CSS, JavaScript, and PHP running on a XAMPP local server. The website integrates with Railway for cloud-based backend services to handle contact form and order submissions.
+A simple website for Sally's Catering, developed using HTML, CSS, and JavaScript. The frontend runs locally (e.g., via XAMPP or any static server), with Railway used for cloud integration to handle contact form and order submissions.
 
 ## Project Overview
 
-This website includes:
-- Homepage
-- Menu and services
-- Contact form
-- Railway integration for order/inquiry submission
-- Responsive design using HTML and CSS
+This website offers:  
+- Homepage showcasing Sally's Catering  
+- Menu and services pages  
+- Contact form for orders and inquiries  
+- Cloud integration with Railway 
+- Responsive design built with HTML and CSS for all devices  
 
 ## Technologies Used
 
-- HTML, CSS, JavaScript
-- PHP (via XAMPP server)
-- Railway (cloud integration)
-- Git & GitHub (version control)
+- HTML, CSS, JavaScript for frontend development  
+- Railway for cloud integration of form submissions  
+- Git & GitHub for version control  
 
 ## Folder Structure
-Sallyscaterings/
-├── index.php
-├── about.php
-├── contact.php
-├── menu.php
-├── railway.html
-├── /css
-├── /js
-├── /images
-└── README.md
+
+
+
 
 
 CLOUD-BASED SERVICE LINK : https://sally-s-catering-system-production.up.railway.app
